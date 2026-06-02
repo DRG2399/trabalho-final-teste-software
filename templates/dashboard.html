@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <section class="panel">
+            <h1>Bem-vindo, {{ username }}!</h1>
+            <p class="subtitle">Voc&ecirc; est&aacute; autenticado no sistema.</p>
+
+            <nav class="actions">
+                <a id="contact-link" class="button-link" href="{{ url_for('contact') }}">Formul&aacute;rio de contato</a>
+                <a id="logout-link" class="secondary-link" href="{{ url_for('logout') }}">Sair</a>
+            </nav>
+        </section>
+    </main>
+</body>
+</html>

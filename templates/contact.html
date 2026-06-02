@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <section class="panel">
+            <h1>Contato</h1>
+            <p class="subtitle">Envie uma mensagem para a equipe.</p>
+
+            {% if error %}
+                <p class="alert error" id="contact-error">{{ error }}</p>
+            {% endif %}
+
+            {% if success %}
+                <p class="alert success" id="contact-success">{{ success }}</p>
+            {% endif %}
+
+            <form method="post" action="{{ url_for('contact') }}" novalidate>
+                <label for="name">Nome</label>
+                <input id="name" name="name" type="text">
+
+                <label for="email">Email</label>
+                <input id="email" name="email" type="text">
+
+                <label for="message">Mensagem</label>
+                <textarea id="message" name="message" rows="5"></textarea>
+
+                <button id="send-button" type="submit">Enviar</button>
+            </form>
+
+            <nav class="actions">
+                <a id="dashboard-link" class="secondary-link" href="{{ url_for('dashboard') }}">Voltar ao dashboard</a>
+                <a id="logout-link" class="secondary-link" href="{{ url_for('logout') }}">Sair</a>
+            </nav>
+        </section>
+    </main>
+</body>
+</html>
